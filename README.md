@@ -16,21 +16,23 @@ A PyTorch-based fine-tuning framework for adapting Suiren pre-trained molecular 
 
 ## Overview
 
-<div align="center">
-<img src="./suiren-family.jpg" alt="main_flowchart" width="100%" />
-</div>
 
 The Suiren family offers multiple backbone variants, among which **Suiren-ConfAvg** is designed to learn conformational averaging features. Its embeddings can assist in predicting various macroscopic molecular properties, such as density, melting point, ADMET, and more.
 
 In this repository, we provide a complete set of fine-tuning models and a training framework, allowing you to train on your own data. Notably, the Suiren-ConfAvg pre-trained model offers significant benefits for tasks with limited data.
 
-<div align="center">
-<img src="./finetune-model.png" alt="main_flowchart" width="100%" />
-</div>
-
 This project provides tools to fine-tune pre-trained molecular encoders for two types of tasks:
 - **Regression**: Predicting continuous molecular properties (e.g., density, solubility)
 - **Classification**: Predicting binary/multi-class molecular properties (e.g., ADMET BBB, ADMET toxicity)
+
+<div align="center">
+<img src="./suiren-family.jpg" alt="main_flowchart" width="80%" />
+</div>
+
+<div align="center">
+<img src="./finetune-model.png" alt="main_flowchart" width="80%" />
+</div>
+
 
 ## Repository Structure
 
@@ -120,7 +122,7 @@ Download pretrained model checkpoints:
 
 | Model | Purpose | Download Link |
 |-------|---------|---------------|
-| Suiren-ConfAvg | Pretrain graph neural network for SMILES | `https://huggingface.co/ajy112/Suiren-ConfAvg` |
+| Suiren-ConfAvg | Pretrain graph neural network for SMILES | [Huggingface](https://huggingface.co/ajy112/Suiren-ConfAvg) |
 
 ## Usage
 
