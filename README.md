@@ -16,13 +16,17 @@ A PyTorch-based fine-tuning framework for adapting Suiren pre-trained molecular 
 
 ## Overview
 
-[suiren-family](suiren-family.jpg)
+<div align="center">
+<img src="./suiren-family.jpg" alt="main_flowchart" width="100%" />
+</div>
 
 The Suiren family offers multiple backbone variants, among which **Suiren-ConfAvg** is designed to learn conformational averaging features. Its embeddings can assist in predicting various macroscopic molecular properties, such as density, melting point, ADMET, and more.
 
 In this repository, we provide a complete set of fine-tuning models and a training framework, allowing you to train on your own data. Notably, the Suiren-ConfAvg pre-trained model offers significant benefits for tasks with limited data.
 
-[finetune-model](finetune-model.png)
+<div align="center">
+<img src="./finetune-model.png" alt="main_flowchart" width="100%" />
+</div>
 
 This project provides tools to fine-tune pre-trained molecular encoders for two types of tasks:
 - **Regression**: Predicting continuous molecular properties (e.g., density, solubility)
