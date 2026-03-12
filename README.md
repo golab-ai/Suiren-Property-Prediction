@@ -16,28 +16,23 @@ A PyTorch-based fine-tuning framework for adapting Suiren pre-trained molecular 
 
 ## Overview
 
+[suiren-family](suiren-family.jpg)
 
 The Suiren family offers multiple backbone variants, among which **Suiren-ConfAvg** is designed to learn conformational averaging features. Its embeddings can assist in predicting various macroscopic molecular properties, such as density, melting point, ADMET, and more.
 
 In this repository, we provide a complete set of fine-tuning models and a training framework, allowing you to train on your own data. Notably, the Suiren-ConfAvg pre-trained model offers significant benefits for tasks with limited data.
 
+[finetune-model](finetune-model.png)
+
 This project provides tools to fine-tune pre-trained molecular encoders for two types of tasks:
 - **Regression**: Predicting continuous molecular properties (e.g., density, solubility)
 - **Classification**: Predicting binary/multi-class molecular properties (e.g., ADMET BBB, ADMET toxicity)
 
-<div align="center">
-<img src="./suiren-family.jpg" alt="main_flowchart" width="80%" />
-</div>
-
-<div align="center">
-<img src="./finetune-model.png" alt="main_flowchart" width="80%" />
-</div>
-
-
 ## Repository Structure
 
 ```
-├── main.py                      # Main training script
+├── main.py                      # Main fine-tuning training script
+├── inference.py                 # Inference script for predictions
 ├── engine.py                    # Training and evaluation loops
 ├── optim_factory.py            # Optimizer and scheduler factory
 ├── logger.py                   # Custom logging utilities
@@ -59,7 +54,8 @@ This project provides tools to fine-tune pre-trained molecular encoders for two 
 - numpy
 - torch_geometric
 - pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv
-- timm
+- timm==0.4.12
+- torcheval
 
 ## Data Preparation
 
@@ -122,7 +118,7 @@ Download pretrained model checkpoints:
 
 | Model | Purpose | Download Link |
 |-------|---------|---------------|
-| Suiren-ConfAvg | Pretrain graph neural network for SMILES | [Huggingface](https://huggingface.co/ajy112/Suiren-ConfAvg) |
+| Suiren-ConfAvg | Pretrain graph neural network for SMILES | `https://huggingface.co/ajy112/Suiren-ConfAvg` |
 
 ## Usage
 
@@ -141,6 +137,7 @@ python -m torch.distributed.launch \
   --main-metric MAE \
   --checkpoint-pretrain /path/to/model.pt
 ```
+
 
 ```bash
 python -m torch.distributed.launch \
@@ -169,6 +166,43 @@ python -m torch.distributed.launch \
 ```
 
 
+
+## Quick Inference
+
+Once you have a fine-tuned model, use the inference script for fast predictions:
+
+### Single SMILES Prediction
+
+```bash
+python inference.py {task_name}
+```
+
+Interactive input:
+```bash
+$ python inference.py acentric_factor
+Enter SMILES or CSV path: c1cc2c3c(cccc3c1)CC2
+{
+  "SMILES": "c1cc2c3c(cccc3c1)CC2",
+  "prediction": 0.381
+}
+```
+
+### Batch Prediction from CSV
+
+Provide a CSV file with a `SMILES` column:
+
+```bash
+$ python inference.py LD50
+In SMILES or CSV path: test_data.csv
+```
+
+The source CSV will be updated with predictions in a `value` column.
+
+### Inference Options
+
+```bash
+python inference.py {task_name} [--checkpoint /path/to/model.pt] [--batch-size 32] [--device auto]
+```
 
 ## Key Arguments
 
