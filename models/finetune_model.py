@@ -12,7 +12,7 @@ Date: 2026-02-28
 import torch
 import torch.nn as nn
 from models.graph_NN import GNN
-from torch_scatter import scatter
+from torch_geometric.nn import global_add_pool
 
 
 class PredictModel2D(torch.nn.Module):
@@ -165,7 +165,7 @@ class PredictModel2D(torch.nn.Module):
         # Stage 4: Graph-level Pooling and Normalization
         # ========================================================================
         # Aggregate node representations to molecular level using scatter mean
-        outputs_2d = scatter(outputs_2d, data.batch, dim=0) / self.avg_atom
+        outputs_2d = global_add_pool(outputs_2d, data.batch) / self.avg_atom
         
         # ========================================================================
         # Stage 5: Molecular Prediction
