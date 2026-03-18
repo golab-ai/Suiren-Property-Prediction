@@ -53,7 +53,6 @@ This project provides tools to fine-tune pre-trained molecular encoders for two 
 - PyTorch 2.0+
 - numpy
 - torch_geometric
-- pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv
 - timm==0.4.12
 - torcheval
 
