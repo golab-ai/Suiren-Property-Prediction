@@ -117,7 +117,7 @@ Download pretrained model checkpoints:
 
 | Model | Purpose | Download Link |
 |-------|---------|---------------|
-| Suiren-ConfAvg | Pretrain graph neural network for SMILES | `https://huggingface.co/ajy112/Suiren-ConfAvg` |
+| Suiren-ConfAvg | Pretrain graph neural network for high-quality molecular embedding. | [Huggingface](https://huggingface.co/ajy112/Suiren-ConfAvg) |
 
 ## Usage
 
