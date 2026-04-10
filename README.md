@@ -14,11 +14,16 @@
 
 A PyTorch-based fine-tuning framework for adapting Suiren pre-trained molecular models to various downstream property prediction tasks. 
 
+## :warning: :bug: Change Logs
+
+**2026.4.10**: Fixed a bug in processing SMILES without added hydrogens, and the results in the technical report have been updated accordingly (most results show further improvement, with a delay expected for the arXiv update). **We emphasize that Suiren-ConfAvg embeddings must be used in a hydrogenated environment, i.e., requiring Chem.AddHs(mol).**
+
+
 ## Overview
 
-<div align="center">
+<!-- <div align="center">
 <img src="./suiren-family.jpg" alt="main_flowchart" width="100%" />
-</div>
+</div> -->
 
 The Suiren family offers multiple backbone variants, among which **Suiren-ConfAvg** is designed to learn conformational averaging features. Its embeddings can assist in predicting various macroscopic molecular properties, such as density, melting point, ADMET, and more. Details can be found in [Suiren-1.0 Technical Report](https://arxiv.org/abs/2603.21942v1).
 
