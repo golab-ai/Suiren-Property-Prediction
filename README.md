@@ -14,9 +14,9 @@
 
 A PyTorch-based fine-tuning framework for adapting Suiren pre-trained molecular models to various downstream property prediction tasks. 
 
-## :warning: :bug: Change Logs
+## :warning: Change Logs
 
-**2026.4.10**: Fixed a bug in processing SMILES without added hydrogens, and the results in the technical report have been updated accordingly (most results show further improvement, with a delay expected for the arXiv update). **We emphasize that Suiren-ConfAvg embeddings must be used in a hydrogenated environment, i.e., requiring Chem.AddHs(mol).**
+**2026.4.10**: :bug: Fixed a bug in processing SMILES without added hydrogens, and the results in the technical report have been updated accordingly (most results show further improvement, with a delay expected for the arXiv update). **We emphasize that Suiren-ConfAvg embeddings must be used in a hydrogenated environment, i.e., requiring Chem.AddHs(mol).**
 
 
 ## Overview
