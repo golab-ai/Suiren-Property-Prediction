@@ -217,7 +217,7 @@ class PP_smiles_2d(InMemoryDataset):
                     fail += 1
                     continue
                 try:
-                    smiles_dict, _ = from_smiles(mol)
+                    smiles_dict, _ = from_smiles(mol, with_hydrogen=True)
                     x, edge_index, edge_attr, edge_index_all = smiles_dict
                     atom_types = x
                     edge_index = edge_index
@@ -261,7 +261,7 @@ class PP_smiles_2d(InMemoryDataset):
                     fail += 1
                     continue
                 try:
-                    smiles_dict, _ = from_smiles(mol)
+                    smiles_dict, _ = from_smiles(mol, with_hydrogen=True)
                     x, edge_index, edge_attr, edge_index_all = smiles_dict
                     atom_types = x
                     edge_index = edge_index
