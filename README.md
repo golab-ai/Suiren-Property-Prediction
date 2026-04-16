@@ -239,7 +239,7 @@ In SMILES or CSV path: test_data.csv
 
 The source CSV will be updated with predictions in a `value` column.
 
-During training, checkpoints will be saved to './checkpoint/{property_name}/{timestamp}/'. If there are multiple training results, the inference model will automatically select the latest '{timestamp}'. In addition, we also provide directly downloadable weights on [Modelscope](https://modelscope.cn/models/ajy112/Suiren-Model-Set), which can be manually downloaded from the webpage or directly downloaded via the following command:
+During training, checkpoints will be saved to `./checkpoint/{property_name}/{timestamp}/`. If there are multiple training results, the inference model will automatically select the latest `{timestamp}`. In addition, we also provide directly downloadable weights on [Modelscope](https://modelscope.cn/models/ajy112/Suiren-Model-Set), which can be manually downloaded from the webpage or directly downloaded via the following command:
 
 ```bash
 pip install modelscope
