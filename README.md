@@ -174,45 +174,6 @@ python -m torch.distributed.launch \
   --checkpoint-pretrain /path/to/model.pt
 ```
 
-
-
-## Quick Inference
-
-Once you have a fine-tuned model, use the inference script for fast predictions:
-
-### Single SMILES Prediction
-
-```bash
-python inference.py {task_name}
-```
-
-Interactive input:
-```bash
-$ python inference.py acentric_factor
-Enter SMILES or CSV path: c1cc2c3c(cccc3c1)CC2
-{
-  "SMILES": "c1cc2c3c(cccc3c1)CC2",
-  "prediction": 0.381
-}
-```
-
-### Batch Prediction from CSV
-
-Provide a CSV file with a `SMILES` column:
-
-```bash
-$ python inference.py LD50
-In SMILES or CSV path: test_data.csv
-```
-
-The source CSV will be updated with predictions in a `value` column.
-
-### Inference Options
-
-```bash
-python inference.py {task_name} [--checkpoint /path/to/model.pt] [--batch-size 32] [--device auto]
-```
-
 ## Key Arguments
 
 ### Task Configuration
@@ -245,6 +206,49 @@ checkpoints/{property_name}/{timestamp}/
 logs/{property_name}/
 └── {timestamp}.log                  # Training log
 ```
+
+
+## Quick Inference
+
+Once you have a fine-tuned model, use the inference script for fast predictions:
+
+### Single SMILES Prediction
+
+```bash
+python inference.py {property_name}
+```
+
+Interactive input:
+```bash
+$ python inference.py acentric_factor
+Enter SMILES or CSV path: c1cc2c3c(cccc3c1)CC2
+{
+  "SMILES": "c1cc2c3c(cccc3c1)CC2",
+  "prediction": 0.381
+}
+```
+
+### Batch Prediction from CSV
+
+Provide a CSV file with a `SMILES` column:
+
+```bash
+$ python inference.py LD50
+In SMILES or CSV path: test_data.csv
+```
+
+The source CSV will be updated with predictions in a `value` column.
+
+During training, checkpoints will be saved to './checkpoint/{property_name}/{timestamp}/'. If there are multiple training results, the inference model will automatically select the latest '{timestamp}'. In addition, we also provide directly downloadable weights on [Modelscope](https://modelscope.cn/models/ajy112/Suiren-Model-Set), which can be manually downloaded from the webpage or directly downloaded via the following command:
+
+```bash
+pip install modelscope
+cd checkpoints
+modelscope download --model ajy112/Suiren-Model-Set
+```
+
+If you wish to use a checkpoint from another location, please use the '--checkpoint /path/to/model.pt' command.
+
 
 ## Notes
 
