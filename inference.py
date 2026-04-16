@@ -265,7 +265,7 @@ def build_graph(smiles: str) -> Tuple[Optional[Data], Optional[str]]:
     if not smiles:
         return None, "empty_smiles"
 
-    graph_tuple, mol_flag = from_smiles(smiles)
+    graph_tuple, mol_flag = from_smiles(smiles, with_hydrogen=True)
     if not mol_flag:
         return None, "invalid_smiles"
 
