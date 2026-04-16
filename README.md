@@ -200,8 +200,8 @@ Results are organized by property name and experiment timestamp:
 
 ```
 checkpoints/{property_name}/{timestamp}/
-├── {property_name}_best.pt          # Best model checkpoint
-└── {property_name}_ema_best.pt     # Best EMA model (if enabled)
+├── {property_name}_regression.pt          # Best model checkpoint (or *_classification.pt)
+└── {property_name}_regression_ema.pt     # Best EMA model (if enabled)
 
 logs/{property_name}/
 └── {timestamp}.log                  # Training log
