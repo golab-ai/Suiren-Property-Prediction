@@ -567,7 +567,7 @@ def train_regression(args):
                         "best_test_ema_err": best_ema_test_err,
                         "norm_factor": norm_factor
                     }
-                    torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_ema.pt')
+                    torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_regression_ema.pt')
     
             ema_log = (f'EMA -- Epoch: [{epoch}], '
                       f'Val MAE: {ema_val_err:.5f}, Val R2: {ema_val_r2:.5f}, '
@@ -935,7 +935,7 @@ def train_classification(args):
                         "epoch": epoch,
                         "best_val_acc": best_val_acc
                     }
-                    torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_ema.pt')
+                    torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_classification_ema.pt')
     
             ema_log = (f'EMA -- Epoch: [{epoch}], '
                       f'Val Loss: {ema_val_loss:.5f}, Val Acc: {ema_val_acc:.5f}, '
