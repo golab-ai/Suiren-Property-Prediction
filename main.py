@@ -504,7 +504,7 @@ def train_regression(args):
                     "best_test_err": best_test_err,
                     "norm_factor": norm_factor
                 }
-                torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_2d.pt')
+                torch.save(checkpoint_data, f'{checkpoints_dir}/{args.name}_regression.pt')
 
         # ====================================================================
         # Logging
