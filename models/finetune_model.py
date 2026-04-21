@@ -199,7 +199,7 @@ def standard_finetune(class_num=2, class_flag=False):
     """
     return PredictModel2D(
         pretrain_num_layer=12,
-        finetune_num_layer=12,
+        finetune_num_layer=16,
         pretrain_embed_dim=256,
         finetune_embed_dim=256,
         drop_ratio=0.1,
