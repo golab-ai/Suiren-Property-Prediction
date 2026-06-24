@@ -276,4 +276,4 @@ See LICENSE file for details.
 
 ## Support
 
-For issues, questions, or contributions, please open an issue on GitHub or contact the development team (junyian@gmail.com).
+For issues, questions, or contributions, please open an issue on GitHub or contact the development team (junyian0827@gmail.com).
