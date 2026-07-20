@@ -108,7 +108,7 @@ data/
         └── {property_name}_valid.csv
 ```
 
-Use: `--data-mode smiles_deined`
+Use: `--data-mode smiles_defined`
 
 #### Option 3: Predefined Train/Test Split (Split Train to Train/Val)
 ```
@@ -119,7 +119,7 @@ data/
         └── {property_name}_test.csv
 ```
 
-Use: `--data-mode smiles_deined --tvt`
+Use: `--data-mode smiles_defined --tvt`
 
 ## Pretrained Models
 
@@ -183,8 +183,8 @@ python -m torch.distributed.launch \
 - `--main-metric`: Primary metric for model selection (MAE, R2, ACC, AUPRC, AUROC)
 
 ### Data Configuration
-- `--data-mode`: smiles_random or smiles_deined
-- `--tvt`: Use train/val/test split, must be used with `--data-mode smiles_deined`
+- `--data-mode`: smiles_random or smiles_defined
+- `--tvt`: Use train/val/test split, must be used with `--data-mode smiles_defined`
 - `--ratio`: Train/val split ratio (default: 0.8)
 
 ### Training Configuration
